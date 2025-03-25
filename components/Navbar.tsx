@@ -4,9 +4,16 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="bg-gray-800 p-4 flex justify-between items-center">
-      <h1 className="text-2xl font-bold text-white">Anderson Pereira</h1>
-      <div className="flex space-x-4">
+    <nav className="bg-gray-800 p-4 flex items-center justify-between">
+      <div className="flex items-center space-x-4">
+        <img
+          src="/certificados/imagem-perfil.png"
+          alt="Foto de Anderson Pereira"
+          className="w-12 h-12 rounded-full"
+        />
+        <h1 className="text-lg font-bold text-white">Anderson Pereira</h1>
+      </div>
+      <div className="flex space-x-6">
         <Link href="/" className="text-white hover:text-blue-300">
           Início
         </Link>

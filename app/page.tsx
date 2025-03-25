@@ -1,13 +1,14 @@
-"use client";  // Adicionando a diretiva de cliente
+"use client";  
 
 import { FaLinkedin, FaEnvelope, FaReact, FaNodeJs, FaJsSquare, FaDatabase, FaPhp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/pagination'; // Adicione caso vá usar paginação
-import 'swiper/css/navigation'; // Adicione caso vá usar navegação
+import 'swiper/css/pagination'; 
+import 'swiper/css/navigation'; 
 import Link from "next/link";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -49,63 +50,13 @@ export default function Home() {
       alert("Erro ao enviar a mensagem. Verifique sua conexão e tente novamente.");
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSuccessMessage(""), 5000); // Remove a mensagem após 5 segundos
+      setTimeout(() => setSuccessMessage(""), 5000); 
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      {/* Header */}
-      <header className="bg-gray-800 p-4 flex justify-between items-center">
-        <motion.h1
-          className="text-2xl font-bold"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          Anderson Pereira
-        </motion.h1>
-        <nav className="flex space-x-4">
-          <Link href="/projetos" className="text-white hover:text-blue-300">
-            Projetos
-          </Link>
-          <Link href="/curriculo" className="text-white hover:text-blue-300">
-            Currículo
-          </Link>
-          <Link href="/certificados" className="text-white hover:text-blue-300">
-            Certificados
-          </Link>
-        </nav>
-        <div className="flex space-x-4">
-          <a
-            href="https://www.linkedin.com/in/anderson-pereira-61375a254/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-300"
-          >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              <FaLinkedin size={24} />
-            </motion.div>
-          </a>
-          <a
-            href="mailto:anderson.informata@gmail.com"
-            className="text-red-500 hover:text-red-300"
-          >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
-            >
-              <FaEnvelope size={24} />
-            </motion.div>
-          </a>
-        </div>
-      </header>
-
+      <Navbar />
       <main className="max-w-4xl mx-auto p-4">
         <section className="mt-8">
           <h2 className="text-3xl font-bold border-b-2 border-blue-500 inline-block">
@@ -204,6 +155,40 @@ export default function Home() {
 
         <section className="mt-8">
           <h2 className="text-3xl font-bold border-b-2 border-blue-500 inline-block">
+            Redes Sociais
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+            <a
+              href="https://www.linkedin.com/in/anderson-pereira-61375a254/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700"
+            >
+              <FaLinkedin size={24} className="text-blue-500" />
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href="mailto:anderson.informata@gmail.com"
+              className="flex items-center space-x-2 bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700"
+            >
+              <FaEnvelope size={24} className="text-red-500" />
+              <span>Email</span>
+            </a>
+            <a
+              href="https://github.com/pereirasil"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700"
+            >
+              <FaReact size={24} className="text-white" />
+              <span>GitHub</span>
+            </a>
+            {/* Adicione mais redes sociais aqui, se necessário */}
+          </div>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="text-3xl font-bold border-b-2 border-blue-500 inline-block">
             Contato
           </h2>
           <p className="mt-4 text-lg">
@@ -218,6 +203,19 @@ export default function Home() {
           <p className="mt-2 text-lg">
             <strong>GitHub:</strong> <a href="https://github.com/pereirasil" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-300">https://github.com/pereirasil</a>
           </p>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="text-3xl font-bold border-b-2 border-blue-500 inline-block">
+            Contribuições no GitHub
+          </h2>
+          <div className="mt-4 flex justify-center">
+            <img
+              src="https://ghchart.rshah.org/pereirasil"
+              alt="Gráfico de contribuições do GitHub"
+              className="w-full max-w-2xl rounded-lg shadow-lg"
+            />
+          </div>
         </section>
 
         <motion.section
