@@ -1,12 +1,12 @@
-"use client";  
+"use client";
 
 import { FaLinkedin, FaEnvelope, FaReact, FaNodeJs, FaJsSquare, FaDatabase, FaPhp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/pagination'; 
-import 'swiper/css/navigation'; 
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 
@@ -50,7 +50,7 @@ export default function Home() {
       alert("Erro ao enviar a mensagem. Verifique sua conexão e tente novamente.");
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSuccessMessage(""), 5000); 
+      setTimeout(() => setSuccessMessage(""), 5000);
     }
   };
 
@@ -58,7 +58,21 @@ export default function Home() {
     <div className="min-h-screen bg-gray-900 text-white">
       <Navbar />
       <main className="max-w-4xl mx-auto p-4">
-        <section className="mt-8">
+        <section className="mt-8 text-center">
+          <motion.h1
+            className="text-4xl font-bold text-blue-400"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            Seja Bem-vindo ao Meu Portfólio!
+          </motion.h1>
+          <p className="mt-4 text-lg text-gray-300">
+            Aqui você encontrará informações sobre minha experiência, habilidades e projetos. Fique à vontade para explorar!
+          </p>
+        </section>
+
+        <section className="mt-12">
           <h2 className="text-3xl font-bold border-b-2 border-blue-500 inline-block">
             Objetivo Profissional
           </h2>

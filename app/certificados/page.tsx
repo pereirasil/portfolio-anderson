@@ -20,15 +20,15 @@ export default function Certificados() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100 text-black">
+    <div className="min-h-screen bg-gray-800 text-white">
       <Navbar />
-      <div className="max-w-5xl mx-auto bg-white shadow-lg rounded-lg p-8">
-        <h1 className="text-4xl font-bold text-center border-b-2 border-gray-300 pb-4">
+      <div className="max-w-5xl mx-auto bg-gray-900 shadow-lg rounded-lg p-8">
+        <h1 className="text-4xl font-bold text-center border-b-2 border-gray-600 pb-4">
           Certificados
         </h1>
 
         {/* Certificados do Militarismo */}
-        <h2 className="text-3xl font-bold mt-8 border-b-2 border-gray-300 pb-2">
+        <h2 className="text-3xl font-bold mt-8 border-b-2 border-gray-600 pb-2">
           Certificados do Militarismo
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
@@ -50,7 +50,7 @@ export default function Certificados() {
                   onClick={() =>
                     setShowFrente(showFrente === index ? null : index)
                   }
-                  className="text-blue-500 hover:underline"
+                  className="text-blue-400 hover:underline"
                 >
                   {showFrente === index ? "Ocultar Frente" : "Exibir Frente"}
                 </button>
@@ -78,7 +78,7 @@ export default function Certificados() {
                   onClick={() =>
                     setShowVerso(showVerso === index ? null : index)
                   }
-                  className="text-blue-500 hover:underline"
+                  className="text-blue-400 hover:underline"
                 >
                   {showVerso === index ? "Ocultar Verso" : "Exibir Verso"}
                 </button>
@@ -95,7 +95,7 @@ export default function Certificados() {
         </div>
 
         {/* Certificados de Tecnologia */}
-        <h2 className="text-3xl font-bold mt-12 border-b-2 border-gray-300 pb-2">
+        <h2 className="text-3xl font-bold mt-12 border-b-2 border-gray-600 pb-2">
           Certificados de Tecnologia
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
@@ -109,7 +109,7 @@ export default function Certificados() {
                   onClick={() =>
                     setShowFrente(showFrente === index + certificadosMilitarismo.length ? null : index + certificadosMilitarismo.length)
                   }
-                  className="text-blue-500 hover:underline"
+                  className="text-blue-400 hover:underline"
                 >
                   {showFrente === index + certificadosMilitarismo.length ? "Ocultar Frente" : "Exibir Frente"}
                 </button>
@@ -127,7 +127,7 @@ export default function Certificados() {
                   onClick={() =>
                     setShowVerso(showVerso === index + certificadosMilitarismo.length ? null : index + certificadosMilitarismo.length)
                   }
-                  className="text-blue-500 hover:underline"
+                  className="text-blue-400 hover:underline"
                 >
                   {showVerso === index + certificadosMilitarismo.length ? "Ocultar Verso" : "Exibir Verso"}
                 </button>

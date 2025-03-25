@@ -4,10 +4,10 @@ import Navbar from "../../components/Navbar";
 
 export default function Curriculo() {
   return (
-    <div className="min-h-screen bg-gray-100 text-black">
+    <div className="min-h-screen bg-gray-800 text-white">
       <Navbar />
-      <div className="pt-20 max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-8">
-        <h1 className="text-4xl font-bold text-center border-b-2 border-gray-300 pb-4">
+      <div className="pt-20 max-w-3xl mx-auto bg-gray-900 shadow-lg rounded-lg p-8">
+        <h1 className="text-4xl font-bold text-center border-b-2 border-gray-600 pb-4">
           Anderson Pereira
         </h1>
         <section className="mt-6">
@@ -21,7 +21,7 @@ export default function Curriculo() {
               href="https://www.linkedin.com/in/anderson-pereira-61375a254/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500"
+              className="text-blue-400"
             >
               https://www.linkedin.com/in/anderson-pereira-61375a254/
             </a>
