@@ -4,12 +4,12 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="bg-gray-800 p-4 flex items-center justify-between">
-      <div className="flex items-center space-x-4">
+    <nav className="bg-gray-800 p-4 flex flex-col sm:flex-row items-center justify-between">
+      <div className="flex items-center space-x-4 mb-4 sm:mb-0">
         <img
           src="/certificados/imagem-perfil.png"
           alt="Foto de Anderson Pereira"
-          className="w-12 h-12 rounded-full"
+          className="w-[5rem] h-[5rem] rounded-full object-cover"
         />
         <h1 className="text-lg font-bold text-white">Anderson Pereira</h1>
       </div>

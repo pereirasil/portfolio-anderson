@@ -301,7 +301,9 @@ export default function Home() {
           </form>
         </motion.section>
 
-        {/* Footer */}
+         <footer className="mt-8 border-t border-gray-700 pt-4 text-center">
+          <p>© {new Date().getFullYear()} Anderson Pereira. Todos os direitos reservados.</p>
+        </footer>
         
       </main>
     </div>
