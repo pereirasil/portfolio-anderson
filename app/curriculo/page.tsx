@@ -15,8 +15,8 @@ export default function Curriculo() {
       >
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <h1 className="text-4xl font-bold text-center text-gray-900 border-b-2 border-gray-200 pb-4 mb-8">
-            Anderson Pereira
-          </h1>
+          Anderson Pereira
+        </h1>
           
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Informações de Contato</h2>
@@ -35,39 +35,39 @@ export default function Curriculo() {
               </p>
               <p className="flex items-center">
                 <span className="font-medium text-gray-700">LinkedIn:</span>
-                <a
-                  href="https://www.linkedin.com/in/anderson-pereira-61375a254/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+            <a
+              href="https://www.linkedin.com/in/anderson-pereira-61375a254/"
+              target="_blank"
+              rel="noopener noreferrer"
                   className="ml-2 text-blue-600 hover:text-blue-800 transition-colors"
-                >
+            >
                   Anderson Pereira
-                </a>
-              </p>
+            </a>
+          </p>
             </div>
-          </section>
+        </section>
 
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Objetivo Profissional</h2>
             <p className="text-gray-700 leading-relaxed">
               Atuar como desenvolvedor Full-Stack, criando soluções eficientes e
-              contribuindo para o crescimento da empresa e a melhoria da experiência do
-              usuário.
-            </p>
-          </section>
+            contribuindo para o crescimento da empresa e a melhoria da experiência do
+            usuário.
+          </p>
+        </section>
 
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Resumo</h2>
             <p className="text-gray-700 leading-relaxed">
-              Atualmente, atuo na Markts, desenvolvendo um aplicativo com tecnologias
-              como React Native, Node.js, React, TypeScript e NestJS. Fiz um curso de PHP
-              na Coti Informática e um curso de HTML, JavaScript, React Native e
-              Desenvolvimento de API com Node.js na Udemy. Estou cursando Análise e
-              Desenvolvimento de Sistemas e busco continuamente aprimorar minhas
-              habilidades técnicas e contribuir para o sucesso dos projetos em que estou
-              envolvido.
-            </p>
-          </section>
+            Atualmente, atuo na Markts, desenvolvendo um aplicativo com tecnologias
+            como React Native, Node.js, React, TypeScript e NestJS. Fiz um curso de PHP
+            na Coti Informática e um curso de HTML, JavaScript, React Native e
+            Desenvolvimento de API com Node.js na Udemy. Estou cursando Análise e
+            Desenvolvimento de Sistemas e busco continuamente aprimorar minhas
+            habilidades técnicas e contribuir para o sucesso dos projetos em que estou
+            envolvido.
+          </p>
+        </section>
 
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Formação</h2>
@@ -75,7 +75,7 @@ export default function Curriculo() {
               <p className="text-gray-700">Análise e Desenvolvimento de Sistemas - UniFAVENI</p>
               <p className="text-gray-500 text-sm mt-1">Conclusão prevista: Julho 2025</p>
             </div>
-          </section>
+        </section>
 
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Outros Cursos</h2>
@@ -89,7 +89,7 @@ export default function Curriculo() {
                 <p className="text-gray-500 text-sm">Udemy</p>
               </div>
             </div>
-          </section>
+        </section>
 
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Principais Tecnologias</h2>
@@ -100,7 +100,7 @@ export default function Curriculo() {
                 </span>
               ))}
             </div>
-          </section>
+        </section>
 
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Experiência</h2>
@@ -126,10 +126,10 @@ export default function Curriculo() {
                     </span>
                   ))}
                 </div>
-              </div>
-            </div>
-          </section>
-        </div>
+          </div>
+          </div>
+        </section>
+      </div>
       </motion.div>
     </div>
   );

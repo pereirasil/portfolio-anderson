@@ -10,19 +10,19 @@ export default function Projetos() {
     {
       titulo: "Sistema de Votação de Tarefas",
       descricao: "Um sistema simples para votação de tarefas. Clique para acessar!",
-      link: "https://votacaodetarefa.vercel.app/",
+      link: "https://timeboard.site/",
       icone: <FaVoteYea size={48} className="text-blue-400 mb-4" />,
     },
     {
       titulo: "Projeto Exemplo 2",
       descricao: "Descrição do projeto exemplo 2.",
-      link: "https://exemplo2.com",
+      link: "https://timeboard.site/",
       icone: <FaVoteYea size={48} className="text-blue-400 mb-4" />,
     },
     {
       titulo: "Projeto Exemplo 3",
       descricao: "Descrição do projeto exemplo 3.",
-      link: "https://exemplo3.com",
+      link: "https://timeboard.site/",
       icone: <FaVoteYea size={48} className="text-blue-400 mb-4" />,
     },
   ];

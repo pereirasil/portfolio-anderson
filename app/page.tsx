@@ -46,21 +46,21 @@ export default function Home() {
     {
       titulo: "Sistema de Votação de Tarefas",
       descricao: "Um sistema simples para votação de tarefas. Clique para acessar!",
-      link: "https://votacaodetarefa.vercel.app/",
+      link: "https://timeboard.site/",
       icone: <FaVoteYea size={48} className="text-blue-400" />,
       tecnologias: ["React", "Node.js", "MongoDB"]
     },
     {
       titulo: "Projeto Exemplo 2",
       descricao: "Descrição do projeto exemplo 2.",
-      link: "https://exemplo2.com",
+      link: "https://timeboard.site/",
       icone: <FaVoteYea size={48} className="text-blue-400" />,
       tecnologias: ["React", "TypeScript", "Node.js"]
     },
     {
       titulo: "Projeto Exemplo 3",
       descricao: "Descrição do projeto exemplo 3.",
-      link: "https://exemplo3.com",
+      link: "https://timeboard.site/",
       icone: <FaVoteYea size={48} className="text-blue-400" />,
       tecnologias: ["React Native", "Node.js", "MongoDB"]
     },
@@ -192,10 +192,10 @@ export default function Home() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
-            >
-              <img
-                src="/certificados/imagem-perfil.png"
-                alt="Foto de Anderson Pereira"
+          >
+            <img
+              src="/certificados/imagem-perfil.png"
+              alt="Foto de Anderson Pereira"
                 className="w-40 h-40 rounded-full object-cover shadow-2xl border-4 border-white"
               />
             </motion.div>
@@ -291,11 +291,11 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">Projetos Recentes</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projetos.map((projeto, index) => (
-                <motion.a
-                  key={index}
+              <motion.a
+                key={index}
                   href={projeto.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
                   className="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -313,10 +313,10 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
+              </motion.a>
+            ))}
+          </div>
+              </motion.div>
         </section>
 
         {/* Seção de Contato */}
@@ -331,53 +331,53 @@ export default function Home() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="nome" className="block text-sm font-medium mb-2">
-                  Nome
-                </label>
-                <input
-                  type="text"
-                  id="nome"
-                  name="nome"
-                  value={formData.nome}
-                  onChange={handleChange}
-                  required
+                Nome
+              </label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                value={formData.nome}
+                onChange={handleChange}
+                required
                   className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+              />
+            </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
                   className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+              />
+            </div>
               <div>
                 <label htmlFor="mensagem" className="block text-sm font-medium mb-2">
-                  Mensagem
-                </label>
-                <textarea
-                  id="mensagem"
-                  name="mensagem"
-                  value={formData.mensagem}
-                  onChange={handleChange}
+                Mensagem
+              </label>
+              <textarea
+                id="mensagem"
+                name="mensagem"
+                value={formData.mensagem}
+                onChange={handleChange}
                   required
-                  rows={4}
+                rows={4}
                   className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-              </div>
-              <button
-                type="submit"
+            </div>
+            <button
+              type="submit"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-              >
+            >
                 Enviar Mensagem
-              </button>
-            </form>
+            </button>
+          </form>
           </motion.div>
         </section>
       </main>
