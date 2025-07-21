@@ -53,7 +53,7 @@ export default function Home() {
     {
       titulo: "Projeto Exemplo 2",
       descricao: "Descrição do projeto exemplo 2.",
-      link: "https://timeboard.site/",
+      link: "https://domine-a-arte-da-conquista.vercel.app/",
       icone: <FaVoteYea size={48} className="text-blue-400" />,
       tecnologias: ["React", "TypeScript", "Node.js"]
     },
