@@ -4,7 +4,6 @@ import { DataGrid, GridActionsCellItem } from '@mui/x-data-grid';
 import AppBarWithLogout from './AppBarWithLogout';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SaveIcon from '@mui/icons-material/Save';
-import BackButton from './BackButton';
 
 const initialRows = [
   { id: 1, tipo: 'Conciliação', empresa: 'Empresa 1', mesAno: '05/2023', prestador: 'Prestador A', valor: 5000 },
@@ -65,9 +64,8 @@ const Lancamentos = () => {
     <Box sx={{ minHeight: '100vh', bgcolor: '#f5f5f5', p: 0 }}>
       <AppBarWithLogout userName="Usuário" />
       <Box sx={{ p: 3, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Box sx={{ width: '100%', maxWidth: 1000, mb: 2, display: 'flex', alignItems: 'center' }}>
-          <BackButton />
-          <Typography variant="h5" sx={{ ml: 2, fontWeight: 600 }}>
+        <Box sx={{ width: '100%', maxWidth: 1000, mb: 2 }}>
+          <Typography variant="h5" sx={{ fontWeight: 600 }}>
             Lançamentos Gerais
           </Typography>
         </Box>

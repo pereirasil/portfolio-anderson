@@ -1,13 +1,11 @@
 import React from 'react';
 import { Box, Typography, Breadcrumbs, Link, TextField } from '@mui/material';
-import BackButton from './BackButton';
 
 const AReceber = () => {
   return (
     <Box sx={{ p: 3 }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-        <BackButton />
-        <Typography variant="h5" sx={{ ml: 2, fontWeight: 600 }}>
+      <Box sx={{ mb: 2 }}>
+        <Typography variant="h5" sx={{ fontWeight: 600 }}>
           À Receber
         </Typography>
       </Box>

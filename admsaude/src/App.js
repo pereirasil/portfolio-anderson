@@ -11,6 +11,7 @@ import AReceber from './components/AReceber';
 import Cadastro from './components/Cadastro';
 import Informativo from './components/Informativo';
 import Lancamentos from './components/Lancamentos';
+import { GlobalSnackbarProvider } from './components/GlobalSnackbar';
 
 const theme = createTheme({
   palette: {
@@ -28,20 +29,22 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/conciliacao" element={<Conciliacao />} />
-          <Route path="/previsao" element={<Previsao />} />
-          <Route path="/areceber" element={<AReceber />} />
-          <Route path="/cadastro" element={<Cadastro />} />
-          <Route path="/informativo" element={<Informativo />} />
-          <Route path="/planilha1" element={<FinancialManagement />} />
-          <Route path="/lancamentos" element={<Lancamentos />} />
-          <Route path="*" element={<Navigate to="/login" />} />
-        </Routes>
-      </Router>
+      <GlobalSnackbarProvider>
+        <Router>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/conciliacao" element={<Conciliacao />} />
+            <Route path="/previsao" element={<Previsao />} />
+            <Route path="/areceber" element={<AReceber />} />
+            <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/informativo" element={<Informativo />} />
+            <Route path="/planilha1" element={<FinancialManagement />} />
+            <Route path="/lancamentos" element={<Lancamentos />} />
+            <Route path="*" element={<Navigate to="/login" />} />
+          </Routes>
+        </Router>
+      </GlobalSnackbarProvider>
     </ThemeProvider>
   );
 }

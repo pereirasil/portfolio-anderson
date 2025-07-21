@@ -1,0 +1,76 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(uuid())
+  nome        String
+  email       String   @unique
+  senha       String
+  porcentagem Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Empresa {
+  id          String       @id @default(uuid())
+  nome        String       @unique
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  prestadores Prestador[]
+  lancamentos Lancamento[]
+}
+
+model Prestador {
+  id          String       @id @default(uuid())
+  nome        String
+  empresaId   String
+  empresa     Empresa      @relation(fields: [empresaId], references: [id])
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  lancamentos Lancamento[]
+
+  @@unique([nome, empresaId])
+}
+
+model Lancamento {
+  id          String    @id @default(uuid())
+  tipo        String // Conciliação, Previsão, À Receber
+  empresaId   String
+  empresa     Empresa   @relation(fields: [empresaId], references: [id])
+  prestadorId String
+  prestador   Prestador @relation(fields: [prestadorId], references: [id])
+  mesAno      DateTime
+  valor       Float
+  observacoes String?
+  status      String    @default("Pendente") // Pendente, Concluído, Cancelado
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([empresaId])
+  @@index([prestadorId])
+  @@index([mesAno])
+  @@index([tipo])
+}
+
+model Informativo {
+  id        String   @id @default(uuid())
+  titulo    String
+  mensagem  String
+  data      DateTime @default(now())
+  ativo     Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

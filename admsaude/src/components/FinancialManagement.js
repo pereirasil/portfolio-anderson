@@ -13,12 +13,14 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Button,
+  Snackbar,
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import ptBR from 'date-fns/locale/pt-BR';
-import BackButton from './BackButton';
+import SaveIcon from '@mui/icons-material/Save';
 
 const FinancialManagement = () => {
   // Mock data for companies - in a real app, this would come from an API
@@ -56,6 +58,8 @@ const FinancialManagement = () => {
     toPayOrReceive: 0,
   });
 
+  const [snackbar, setSnackbar] = useState({ open: false, message: '' });
+
   const handleForm1Change = (field) => (event) => {
     setForm1Data({
       ...form1Data,
@@ -87,12 +91,16 @@ const FinancialManagement = () => {
     }
   };
 
+  const handleSave = () => {
+    // Aqui você pode adicionar a lógica para salvar os dados
+    setSnackbar({ open: true, message: 'Dados salvos com sucesso!' });
+  };
+
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={ptBR}>
       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-          <BackButton />
-          <Typography variant="h4" gutterBottom sx={{ ml: 2 }}>
+        <Box sx={{ mb: 2 }}>
+          <Typography variant="h4" gutterBottom>
             Gestão Financeira
           </Typography>
         </Box>
@@ -224,7 +232,7 @@ const FinancialManagement = () => {
         </Paper>
 
         {/* Summary Section */}
-        <Paper sx={{ p: 3 }}>
+        <Paper sx={{ p: 3, mb: 3 }}>
           <Typography variant="h6" gutterBottom>
             Resumo Financeiro
           </Typography>
@@ -251,6 +259,27 @@ const FinancialManagement = () => {
             </Table>
           </TableContainer>
         </Paper>
+
+        {/* Save Button */}
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<SaveIcon />}
+            onClick={handleSave}
+            size="large"
+          >
+            Salvar
+          </Button>
+        </Box>
+
+        {/* Snackbar for feedback */}
+        <Snackbar
+          open={snackbar.open}
+          autoHideDuration={3000}
+          onClose={() => setSnackbar({ open: false, message: '' })}
+          message={snackbar.message}
+        />
       </Container>
     </LocalizationProvider>
   );
