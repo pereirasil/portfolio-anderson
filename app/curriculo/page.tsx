@@ -27,7 +27,7 @@ export default function Curriculo() {
               </p>
               <p className="flex items-center">
                 <span className="font-medium text-gray-700">Email:</span>
-                <span className="ml-2">anderjulya580@gmail.com</span>
+                <span className="ml-2">anderson.informata@gmail.com</span>
               </p>
               <p className="flex items-center">
                 <span className="font-medium text-gray-700">Telefone:</span>
