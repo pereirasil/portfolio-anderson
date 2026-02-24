@@ -1,6 +1,6 @@
 "use client";
 
-import { FaLinkedin, FaEnvelope, FaReact, FaNodeJs, FaJsSquare, FaDatabase, FaPhp, FaVoteYea, FaGithub, FaCalculator, FaTh, FaSortNumericDown } from "react-icons/fa";
+import { FaLinkedin, FaEnvelope, FaReact, FaNodeJs, FaJsSquare, FaDatabase, FaPhp, FaVoteYea, FaGithub, FaCalculator, FaTh, FaSortNumericDown, FaProjectDiagram } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Modal from "@/components/Modal";
@@ -76,6 +76,14 @@ export default function Home() {
       gameType: "numberguessing" as const,
       icone: <FaSortNumericDown size={48} className="text-blue-400" />,
       tecnologias: ["React", "JavaScript"]
+    },
+    {
+      titulo: "Sistema de acompanhante",
+      descricao: "Monorepo: frontend React/Vite (TypeScript) e backend Laravel 11 (PHP). API REST, JWT. Clique para acessar!",
+      link: "https://acompanhanteshots.com.br/",
+      icone: <FaProjectDiagram size={48} className="text-blue-400" />,
+      tecnologias: ["React", "TypeScript", "Vite", "Laravel", "PHP"],
+      maiorDezoito: true,
     },
   ];
 
@@ -318,7 +326,12 @@ export default function Home() {
                     </div>
                   </div>
                 );
-                const cardClass = "bg-gray-50 p-4 sm:p-5 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 min-h-[140px] touch-manipulation";
+                const tarjaMaiorDezoito = "maiorDezoito" in projeto && projeto.maiorDezoito ? (
+                  <div className="bg-red-600 text-white text-center text-xs sm:text-sm font-semibold py-2 px-2 rounded-t-xl w-[calc(100%+2rem)] sm:w-[calc(100%+2.5rem)] md:w-[calc(100%+3rem)] -ml-4 -mt-4 sm:-ml-5 sm:-mt-5 md:-ml-6 md:-mt-6 mb-3">
+                    Acesso permitido para maiores de 18 anos
+                  </div>
+                ) : null;
+                const cardClass = "bg-gray-50 p-4 sm:p-5 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 min-h-[140px] touch-manipulation relative overflow-hidden";
                 if ("link" in projeto && projeto.link) {
                   return (
                     <motion.a
@@ -331,6 +344,7 @@ export default function Home() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
                     >
+                      {tarjaMaiorDezoito}
                       {cardContent}
                     </motion.a>
                   );
