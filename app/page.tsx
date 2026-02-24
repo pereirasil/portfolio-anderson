@@ -108,11 +108,11 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-800">
       {/* Header com navegação */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-sm">
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <a href="/" className="text-white font-bold text-xl">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/90 backdrop-blur-sm">
+        <nav className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-14 sm:h-16">
+            <div className="flex items-center min-w-0">
+              <a href="/" className="text-white font-bold text-base sm:text-xl truncate">
                 Anderson Pereira
               </a>
             </div>
@@ -178,7 +178,7 @@ export default function Home() {
                     <a
                       key={item.id}
                       href={item.href || `#${item.id}`}
-                      className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                      className="text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium touch-manipulation"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item.label}
@@ -192,11 +192,11 @@ export default function Home() {
       </header>
 
       {/* Conteúdo Principal */}
-      <main className="pt-16">
+      <main className="pt-14 sm:pt-16">
         {/* Seção de Boas-vindas */}
-        <section id="section-0" className="h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+        <section id="section-0" className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800 text-white py-12 sm:py-16 px-4">
           <motion.div
-            className="flex flex-col items-center md:flex-row md:items-center md:space-x-8 max-w-6xl mx-auto px-8"
+            className="flex flex-col items-center md:flex-row md:items-center md:space-x-8 max-w-6xl mx-auto px-4 sm:px-8 w-full"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -209,12 +209,12 @@ export default function Home() {
             <img
               src="/certificados/imagem-perfil.png"
               alt="Foto de Anderson Pereira"
-                className="w-40 h-40 rounded-full object-cover shadow-2xl border-4 border-white"
-              />
+              className="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full object-cover shadow-2xl border-4 border-white"
+            />
             </motion.div>
-            <div className="text-center md:text-left mt-8 md:mt-0">
+            <div className="text-center md:text-left mt-6 md:mt-0 w-full">
               <motion.h1 
-                className="text-5xl font-bold mb-4"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
@@ -222,7 +222,7 @@ export default function Home() {
                 Anderson Pereira
               </motion.h1>
               <motion.p 
-                className="text-xl mb-6 max-w-2xl"
+                className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 max-w-2xl mx-auto md:mx-0"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
@@ -239,21 +239,21 @@ export default function Home() {
                   href="https://www.linkedin.com/in/anderson-pereira-61375a254/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-blue-600 p-3 rounded-full hover:bg-blue-50 transition-colors"
+                  className="bg-white text-blue-600 p-2.5 sm:p-3 rounded-full hover:bg-blue-50 transition-colors touch-manipulation"
                 >
-                  <FaLinkedin size={24} />
+                  <FaLinkedin size={22} className="sm:w-6 sm:h-6" />
                 </a>
                 <a
                   href="https://github.com/seu-usuario"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-gray-800 p-3 rounded-full hover:bg-gray-50 transition-colors"
+                  className="bg-white text-gray-800 p-2.5 sm:p-3 rounded-full hover:bg-gray-50 transition-colors touch-manipulation"
                 >
-                  <FaGithub size={24} />
+                  <FaGithub size={22} className="sm:w-6 sm:h-6" />
                 </a>
                 <a
                   href="mailto:anderson.informata@gmail.com"
-                  className="bg-white text-blue-600 p-3 rounded-full hover:bg-blue-50 transition-colors"
+                  className="bg-white text-blue-600 p-2.5 sm:p-3 rounded-full hover:bg-blue-50 transition-colors touch-manipulation"
                 >
                   <FaEnvelope size={24} />
                 </a>
@@ -263,28 +263,28 @@ export default function Home() {
         </section>
 
         {/* Seção de Habilidades */}
-        <section id="section-1" className="h-screen flex flex-col items-center justify-center bg-gray-50">
+        <section id="section-1" className="min-h-screen flex flex-col items-center justify-center bg-gray-50 py-12 sm:py-16">
           <motion.div
-            className="max-w-6xl mx-auto px-8"
+            className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 w-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">Habilidades Técnicas</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-800">Habilidades Técnicas</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
               {habilidades.map((habilidade, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                  className="bg-white p-4 sm:p-5 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <div className="flex items-center space-x-4">
-                    {habilidade.icone}
-                    <div>
-                      <h3 className="text-xl font-semibold">{habilidade.nome}</h3>
-                      <p className="text-gray-500">{habilidade.nivel}</p>
+                  <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                    <span className="flex-shrink-0">{habilidade.icone}</span>
+                    <div className="min-w-0">
+                      <h3 className="text-base sm:text-lg md:text-xl font-semibold truncate">{habilidade.nome}</h3>
+                      <p className="text-gray-500 text-sm sm:text-base">{habilidade.nivel}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -294,31 +294,31 @@ export default function Home() {
         </section>
 
         {/* Seção de Projetos */}
-        <section id="section-2" className="h-screen flex flex-col items-center justify-center bg-white">
+        <section id="section-2" className="min-h-screen flex flex-col items-center justify-center bg-white py-12 sm:py-16">
           <motion.div
-            className="max-w-6xl mx-auto px-8"
+            className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 w-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">Projetos Recentes</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-800">Projetos Recentes</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
               {projetos.map((projeto, index) => {
                 const cardContent = (
-                  <div className="flex flex-col items-center text-center">
-                    {projeto.icone}
-                    <h3 className="text-xl font-semibold mt-4">{projeto.titulo}</h3>
-                    <p className="text-gray-600 mt-2">{projeto.descricao}</p>
-                    <div className="mt-4 flex flex-wrap gap-2 justify-center">
+                  <div className="flex flex-col items-center text-center min-w-0">
+                    <span className="flex-shrink-0">{projeto.icone}</span>
+                    <h3 className="text-base sm:text-lg md:text-xl font-semibold mt-3 sm:mt-4 px-1 break-words">{projeto.titulo}</h3>
+                    <p className="text-gray-600 mt-1 sm:mt-2 text-sm sm:text-base px-1">{projeto.descricao}</p>
+                    <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2 justify-center">
                       {projeto.tecnologias.map((tech, techIndex) => (
-                        <span key={techIndex} className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm">
+                        <span key={techIndex} className="bg-blue-100 text-blue-800 px-2 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm">
                           {tech}
                         </span>
                       ))}
                     </div>
                   </div>
                 );
-                const cardClass = "bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1";
+                const cardClass = "bg-gray-50 p-4 sm:p-5 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 min-h-[140px] touch-manipulation";
                 if ("link" in projeto && projeto.link) {
                   return (
                     <motion.a
@@ -366,15 +366,15 @@ export default function Home() {
         </section>
 
         {/* Seção de Contato */}
-        <section id="section-3" className="h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+        <section id="section-3" className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-white py-12 sm:py-16">
           <motion.div
-            className="max-w-2xl mx-auto px-8 w-full"
+            className="max-w-2xl mx-auto px-4 sm:px-6 md:px-8 w-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl font-bold text-center mb-12">Entre em Contato</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12">Entre em Contato</h2>
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div>
                 <label htmlFor="nome" className="block text-sm font-medium mb-2">
                 Nome

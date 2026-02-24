@@ -42,7 +42,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-6"
+          className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 backdrop-blur-sm p-3 sm:p-4 md:p-6 overflow-y-auto"
           onClick={handleOverlayClick}
         >
           <motion.div
@@ -50,7 +50,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 50 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="relative w-full max-w-[600px] max-h-[90vh] overflow-y-auto"
+            className="relative w-full max-w-[600px] max-h-[85vh] sm:max-h-[90vh] overflow-y-auto my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {children}

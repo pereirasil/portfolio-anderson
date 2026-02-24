@@ -77,7 +77,7 @@ export default function Calculator({ onClose }: CalculatorProps) {
     }
   };
 
-  const btn = "p-4 border-2 border-blue-500 rounded-xl font-bold text-lg transition-all hover:-translate-y-0.5 active:translate-y-0";
+  const btn = "p-2.5 sm:p-3 md:p-4 border-2 border-blue-500 rounded-lg sm:rounded-xl font-bold text-base sm:text-lg transition-all hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] touch-manipulation";
   const btnNum = `${btn} bg-white text-gray-800`;
   const btnOp = `${btn} bg-gradient-to-br from-cyan-400 to-blue-500 text-white`;
   const btnEq = `${btn} bg-gradient-to-br from-blue-500 to-blue-600 text-white`;
@@ -88,15 +88,15 @@ export default function Calculator({ onClose }: CalculatorProps) {
       initial={{ opacity: 0, scale: 0.8, y: 50 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.8, y: 50 }}
-      className="bg-white rounded-2xl p-8 max-w-[400px] w-full border-4 border-blue-500 shadow-xl"
+      className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 max-w-[400px] w-full border-2 sm:border-4 border-blue-500 shadow-xl"
     >
-      <h2 className="text-center text-2xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
+      <h2 className="text-center text-xl sm:text-2xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
         Calculadora
       </h2>
-      <div className="bg-gray-100 border-2 border-blue-500 rounded-xl p-4 mb-6 min-h-[60px] flex items-center justify-end">
-        <span className="text-2xl font-bold text-gray-800 break-all">{display}</span>
+      <div className="bg-gray-100 border-2 border-blue-500 rounded-lg sm:rounded-xl p-3 sm:p-4 mb-4 sm:mb-6 min-h-[52px] sm:min-h-[60px] flex items-center justify-end">
+        <span className="text-xl sm:text-2xl font-bold text-gray-800 break-all">{display}</span>
       </div>
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
         <motion.button type="button" className={btnClear} onClick={clear} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           C
         </motion.button>
@@ -149,11 +149,11 @@ export default function Calculator({ onClose }: CalculatorProps) {
           .
         </motion.button>
       </div>
-      <div className="flex justify-center mt-6">
+      <div className="flex justify-center mt-4 sm:mt-6">
         <motion.button
           type="button"
           onClick={onClose}
-          className="px-8 py-3 rounded-full border-2 border-blue-500 text-blue-600 font-bold hover:bg-blue-500 hover:text-white transition-colors"
+          className="px-6 sm:px-8 py-2.5 sm:py-3 rounded-full border-2 border-blue-500 text-blue-600 font-bold hover:bg-blue-500 hover:text-white transition-colors touch-manipulation min-h-[44px]"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
