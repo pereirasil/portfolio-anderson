@@ -1,8 +1,12 @@
 "use client";
 
-import { FaLinkedin, FaEnvelope, FaPhoneAlt, FaReact, FaNodeJs, FaJsSquare, FaDatabase, FaPhp, FaVoteYea, FaGithub, FaUser, FaCode, FaProjectDiagram, FaEnvelopeOpenText, FaBars, FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaLinkedin, FaEnvelope, FaReact, FaNodeJs, FaJsSquare, FaDatabase, FaPhp, FaVoteYea, FaGithub, FaCalculator, FaTh, FaSortNumericDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import Modal from "@/components/Modal";
+import Calculator from "@/components/jogos/Calculator";
+import TicTacToe from "@/components/jogos/TicTacToe";
+import NumberGuessingGame from "@/components/jogos/NumberGuessingGame";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState(0);
@@ -12,6 +16,8 @@ export default function Home() {
     email: "",
     mensagem: "",
   });
+  const [isGameModalOpen, setIsGameModalOpen] = useState(false);
+  const [currentGameType, setCurrentGameType] = useState<"calculator" | "tictactoe" | "numberguessing" | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -44,25 +50,32 @@ export default function Home() {
 
   const projetos = [
     {
-      titulo: "Sistema de Votação de Tarefas",
-      descricao: "Um sistema simples para votação de tarefas. Clique para acessar!",
-      link: "https://timeboard.site/",
-      icone: <FaVoteYea size={48} className="text-blue-400" />,
-      tecnologias: ["React", "Node.js", "MongoDB"]
+      titulo: "Calculadora",
+      descricao: "Calculadora simples com operações básicas. Clique para jogar!",
+      gameType: "calculator" as const,
+      icone: <FaCalculator size={48} className="text-blue-400" />,
+      tecnologias: ["HTML", "CSS", "JavaScript"]
     },
     {
-      titulo: "Projeto Exemplo 2",
-      descricao: "Descrição do projeto exemplo 2.",
+      titulo: "Domine a Arte da Conquista",
+      descricao: "Landing page do curso/livro. Clique para acessar!",
       link: "https://domine-a-arte-da-conquista.vercel.app/",
       icone: <FaVoteYea size={48} className="text-blue-400" />,
       tecnologias: ["React", "TypeScript", "Node.js"]
     },
     {
-      titulo: "Projeto Exemplo 3",
-      descricao: "Descrição do projeto exemplo 3.",
-      link: "https://timeboard.site/",
-      icone: <FaVoteYea size={48} className="text-blue-400" />,
-      tecnologias: ["React Native", "Node.js", "MongoDB"]
+      titulo: "Jogo da Velha",
+      descricao: "Clássico Jogo da Velha. Clique para jogar!",
+      gameType: "tictactoe" as const,
+      icone: <FaTh size={48} className="text-blue-400" />,
+      tecnologias: ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      titulo: "Adivinhe o Número",
+      descricao: "Tente adivinhar o número secreto entre 1 e 100. Clique para jogar!",
+      gameType: "numberguessing" as const,
+      icone: <FaSortNumericDown size={48} className="text-blue-400" />,
+      tecnologias: ["React", "JavaScript"]
     },
   ];
 
@@ -289,23 +302,14 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">Projetos Recentes</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projetos.map((projeto, index) => (
-              <motion.a
-                key={index}
-                  href={projeto.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                  className="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {projetos.map((projeto, index) => {
+                const cardContent = (
                   <div className="flex flex-col items-center text-center">
                     {projeto.icone}
                     <h3 className="text-xl font-semibold mt-4">{projeto.titulo}</h3>
                     <p className="text-gray-600 mt-2">{projeto.descricao}</p>
-                    <div className="mt-4 flex flex-wrap gap-2">
+                    <div className="mt-4 flex flex-wrap gap-2 justify-center">
                       {projeto.tecnologias.map((tech, techIndex) => (
                         <span key={techIndex} className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm">
                           {tech}
@@ -313,10 +317,52 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-              </motion.a>
-            ))}
-          </div>
-              </motion.div>
+                );
+                const cardClass = "bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1";
+                if ("link" in projeto && projeto.link) {
+                  return (
+                    <motion.a
+                      key={index}
+                      href={projeto.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cardClass}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      {cardContent}
+                    </motion.a>
+                  );
+                }
+                const gameType = "gameType" in projeto ? projeto.gameType : null;
+                return (
+                  <motion.button
+                    key={index}
+                    type="button"
+                    onClick={() => {
+                      if (gameType) {
+                        setCurrentGameType(gameType);
+                        setIsGameModalOpen(true);
+                      }
+                    }}
+                    className={`${cardClass} w-full text-left cursor-pointer border-0`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    {cardContent}
+                  </motion.button>
+                );
+              })}
+            </div>
+
+          <Modal isOpen={isGameModalOpen} onClose={() => setIsGameModalOpen(false)}>
+            {currentGameType === "calculator" && <Calculator onClose={() => setIsGameModalOpen(false)} />}
+            {currentGameType === "tictactoe" && <TicTacToe onClose={() => setIsGameModalOpen(false)} />}
+            {currentGameType === "numberguessing" && <NumberGuessingGame onClose={() => setIsGameModalOpen(false)} />}
+          </Modal>
+          </motion.div>
         </section>
 
         {/* Seção de Contato */}
