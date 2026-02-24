@@ -4,7 +4,16 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+  --brand-surface: #f8fafc;
+  --brand-surface-elevated: #ffffff;
+  --brand-primary: #1d4ed8;
+  --brand-primary-hover: #1e40af;
+  --brand-dark: #0f172a;
+  --brand-dark-surface: #1e293b;
+  --brand-muted: #64748b;
+  --brand-border: #e2e8f0;
+  --brand-dark-border: #334155;
 }
 
 @theme inline {
@@ -17,7 +26,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #f8fafc;
   }
 }
 

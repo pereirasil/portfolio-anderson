@@ -53,35 +53,35 @@ export default function Home() {
       titulo: "Calculadora",
       descricao: "Calculadora simples com operações básicas. Clique para jogar!",
       gameType: "calculator" as const,
-      icone: <FaCalculator size={48} className="text-blue-400" />,
+      icone: <FaCalculator size={48} className="text-brand-primary" />,
       tecnologias: ["HTML", "CSS", "JavaScript"]
     },
     {
       titulo: "Domine a Arte da Conquista",
       descricao: "Landing page do curso/livro. Clique para acessar!",
       link: "https://domine-a-arte-da-conquista.vercel.app/",
-      icone: <FaVoteYea size={48} className="text-blue-400" />,
+      icone: <FaVoteYea size={48} className="text-brand-primary" />,
       tecnologias: ["React", "TypeScript", "Node.js"]
     },
     {
       titulo: "Jogo da Velha",
       descricao: "Clássico Jogo da Velha. Clique para jogar!",
       gameType: "tictactoe" as const,
-      icone: <FaTh size={48} className="text-blue-400" />,
+      icone: <FaTh size={48} className="text-brand-primary" />,
       tecnologias: ["HTML", "CSS", "JavaScript"]
     },
     {
       titulo: "Adivinhe o Número",
       descricao: "Tente adivinhar o número secreto entre 1 e 100. Clique para jogar!",
       gameType: "numberguessing" as const,
-      icone: <FaSortNumericDown size={48} className="text-blue-400" />,
+      icone: <FaSortNumericDown size={48} className="text-brand-primary" />,
       tecnologias: ["React", "JavaScript"]
     },
     {
       titulo: "Sistema de acompanhante",
       descricao: "Monorepo: frontend React/Vite (TypeScript) e backend Laravel 11 (PHP). API REST, JWT. Clique para acessar!",
       link: "https://acompanhanteshots.com.br/",
-      icone: <FaProjectDiagram size={48} className="text-blue-400" />,
+      icone: <FaProjectDiagram size={48} className="text-brand-primary" />,
       tecnologias: ["React", "TypeScript", "Vite", "Laravel", "PHP"],
       maiorDezoito: true,
     },
@@ -114,9 +114,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-800">
+    <div className="min-h-screen bg-brand-surface-elevated text-slate-900">
       {/* Header com navegação */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/90 backdrop-blur-sm">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900 backdrop-blur-sm shadow-sm">
         <nav className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14 sm:h-16">
             <div className="flex items-center min-w-0">
@@ -132,7 +132,7 @@ export default function Home() {
                   <a
                     key={item.id}
                     href={item.href || `#${item.id}`}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+                    className="text-slate-200 hover:text-white transition-colors duration-200 text-sm font-medium"
                   >
                     {item.label}
                   </a>
@@ -144,7 +144,7 @@ export default function Home() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-300 hover:text-white p-2"
+                className="text-slate-200 hover:text-white p-2"
               >
                 <svg
                   className="h-6 w-6"
@@ -186,7 +186,7 @@ export default function Home() {
                     <a
                       key={item.id}
                       href={item.href || `#${item.id}`}
-                      className="text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium touch-manipulation"
+                      className="text-slate-200 hover:text-white block px-3 py-3 rounded-md text-base font-medium touch-manipulation"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item.label}
@@ -202,7 +202,7 @@ export default function Home() {
       {/* Conteúdo Principal */}
       <main className="pt-14 sm:pt-16">
         {/* Seção de Boas-vindas */}
-        <section id="section-0" className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800 text-white py-12 sm:py-16 px-4">
+        <section id="section-0" className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-brand-primary to-brand-primary-hover text-white py-12 sm:py-16 px-4">
           <motion.div
             className="flex flex-col items-center md:flex-row md:items-center md:space-x-8 max-w-6xl mx-auto px-4 sm:px-8 w-full"
             initial={{ opacity: 0, y: -50 }}
@@ -247,7 +247,7 @@ export default function Home() {
                   href="https://www.linkedin.com/in/anderson-pereira-61375a254/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-blue-600 p-2.5 sm:p-3 rounded-full hover:bg-blue-50 transition-colors touch-manipulation"
+                  className="bg-white text-brand-primary p-2.5 sm:p-3 rounded-full hover:bg-slate-50 transition-colors touch-manipulation"
                 >
                   <FaLinkedin size={22} className="sm:w-6 sm:h-6" />
                 </a>
@@ -255,13 +255,13 @@ export default function Home() {
                   href="https://github.com/seu-usuario"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-gray-800 p-2.5 sm:p-3 rounded-full hover:bg-gray-50 transition-colors touch-manipulation"
+                  className="bg-white text-slate-800 p-2.5 sm:p-3 rounded-full hover:bg-slate-50 transition-colors touch-manipulation"
                 >
                   <FaGithub size={22} className="sm:w-6 sm:h-6" />
                 </a>
                 <a
                   href="mailto:anderson.informata@gmail.com"
-                  className="bg-white text-blue-600 p-2.5 sm:p-3 rounded-full hover:bg-blue-50 transition-colors touch-manipulation"
+                  className="bg-white text-brand-primary p-2.5 sm:p-3 rounded-full hover:bg-slate-50 transition-colors touch-manipulation"
                 >
                   <FaEnvelope size={24} />
                 </a>
@@ -271,19 +271,19 @@ export default function Home() {
         </section>
 
         {/* Seção de Habilidades */}
-        <section id="section-1" className="min-h-screen flex flex-col items-center justify-center bg-gray-50 py-12 sm:py-16">
+        <section id="section-1" className="min-h-screen flex flex-col items-center justify-center bg-brand-surface py-12 sm:py-16">
           <motion.div
             className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 w-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-800">Habilidades Técnicas</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-slate-900">Habilidades Técnicas</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
               {habilidades.map((habilidade, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white p-4 sm:p-5 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                  className="bg-brand-surface-elevated p-4 sm:p-5 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-brand-border"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -292,7 +292,7 @@ export default function Home() {
                     <span className="flex-shrink-0">{habilidade.icone}</span>
                     <div className="min-w-0">
                       <h3 className="text-base sm:text-lg md:text-xl font-semibold truncate">{habilidade.nome}</h3>
-                      <p className="text-gray-500 text-sm sm:text-base">{habilidade.nivel}</p>
+                      <p className="text-brand-muted text-sm sm:text-base">{habilidade.nivel}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -302,24 +302,24 @@ export default function Home() {
         </section>
 
         {/* Seção de Projetos */}
-        <section id="section-2" className="min-h-screen flex flex-col items-center justify-center bg-white py-12 sm:py-16">
+        <section id="section-2" className="min-h-screen flex flex-col items-center justify-center bg-brand-surface-elevated py-12 sm:py-16">
           <motion.div
             className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 w-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-800">Projetos Recentes</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-slate-900">Projetos Recentes</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
               {projetos.map((projeto, index) => {
                 const cardContent = (
                   <div className="flex flex-col items-center text-center min-w-0">
                     <span className="flex-shrink-0">{projeto.icone}</span>
                     <h3 className="text-base sm:text-lg md:text-xl font-semibold mt-3 sm:mt-4 px-1 break-words">{projeto.titulo}</h3>
-                    <p className="text-gray-600 mt-1 sm:mt-2 text-sm sm:text-base px-1">{projeto.descricao}</p>
+                    <p className="text-slate-600 mt-1 sm:mt-2 text-sm sm:text-base px-1">{projeto.descricao}</p>
                     <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2 justify-center">
                       {projeto.tecnologias.map((tech, techIndex) => (
-                        <span key={techIndex} className="bg-blue-100 text-blue-800 px-2 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm">
+                        <span key={techIndex} className="bg-slate-100 text-slate-800 px-2 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm border border-brand-border">
                           {tech}
                         </span>
                       ))}
@@ -331,7 +331,7 @@ export default function Home() {
                     Acesso permitido para maiores de 18 anos
                   </div>
                 ) : null;
-                const cardClass = "bg-gray-50 p-4 sm:p-5 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 min-h-[140px] touch-manipulation relative overflow-hidden";
+                const cardClass = "bg-brand-surface p-4 sm:p-5 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 min-h-[140px] touch-manipulation relative overflow-hidden border border-brand-border";
                 if ("link" in projeto && projeto.link) {
                   return (
                     <motion.a
@@ -380,7 +380,7 @@ export default function Home() {
         </section>
 
         {/* Seção de Contato */}
-        <section id="section-3" className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-white py-12 sm:py-16">
+        <section id="section-3" className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-brand-dark to-brand-dark-surface text-white py-12 sm:py-16">
           <motion.div
             className="max-w-2xl mx-auto px-4 sm:px-6 md:px-8 w-full"
             initial={{ opacity: 0 }}
@@ -400,7 +400,7 @@ export default function Home() {
                 value={formData.nome}
                 onChange={handleChange}
                 required
-                  className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 rounded-lg bg-brand-dark-surface border border-brand-dark-border focus:outline-none focus:ring-2 focus:ring-brand-primary text-white placeholder-slate-400"
               />
             </div>
               <div>
@@ -414,7 +414,7 @@ export default function Home() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                  className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 rounded-lg bg-brand-dark-surface border border-brand-dark-border focus:outline-none focus:ring-2 focus:ring-brand-primary text-white placeholder-slate-400"
               />
             </div>
               <div>
@@ -428,12 +428,12 @@ export default function Home() {
                 onChange={handleChange}
                   required
                 rows={4}
-                  className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 rounded-lg bg-brand-dark-surface border border-brand-dark-border focus:outline-none focus:ring-2 focus:ring-brand-primary text-white placeholder-slate-400"
                 />
             </div>
             <button
               type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                className="w-full bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold py-3 px-6 rounded-lg transition-colors"
             >
                 Enviar Mensagem
             </button>

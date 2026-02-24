@@ -16,7 +16,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900 backdrop-blur-sm shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -32,7 +32,7 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+                  className="text-slate-200 hover:text-white transition-colors duration-200 text-sm font-medium"
                 >
                   {item.label}
                 </Link>
@@ -44,7 +44,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-300 hover:text-white p-2"
+              className="text-slate-200 hover:text-white p-2"
             >
               {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
@@ -65,7 +65,7 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    className="text-slate-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
