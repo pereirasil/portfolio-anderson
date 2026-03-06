@@ -486,6 +486,7 @@ export default function Home() {
                 { name: "JavaScript", icon: FaJsSquare, color: "text-yellow-500" },
                 { name: "TypeScript", icon: SiTypescript, color: "text-blue-500" },
                 { name: "React.js", icon: FaReact, color: "text-cyan-400" },
+                { name: "React Native", icon: FaMobileAlt, color: "text-cyan-400" },
                 { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
                 { name: "PHP", icon: FaPhp, color: "text-indigo-400" },
                 { name: "NestJS", icon: SiNestjs, color: "text-red-500" },
