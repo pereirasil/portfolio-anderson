@@ -17,7 +17,7 @@ import {
 } from "react-icons/fa";
 import { SiTypescript, SiNestjs } from "react-icons/si";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const WHATSAPP_NUMBER = "5521981413688";
 const EMAIL = "anderson.informata@gmail.com";
@@ -38,10 +38,25 @@ export default function Home() {
 
   const scrollTo = (id: string) => {
     if (id === "curriculo") return;
-    const el = document.getElementById(id);
-    el?.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false);
+    const el = document.getElementById(id);
+    if (el) {
+      requestAnimationFrame(() => {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
   };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 overflow-x-hidden">
@@ -90,36 +105,50 @@ export default function Home() {
           </div>
           <AnimatePresence>
             {isMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.2 }}
-                className="md:hidden overflow-hidden border-t border-slate-200"
-              >
-                <div className="py-3 space-y-1">
-                  {menuItems.map((item) =>
-                    item.href ? (
-                      <a
-                        key={item.id}
-                        href={item.href}
-                        className="block py-2 px-4 text-slate-600 font-medium"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.label}
-                      </a>
-                    ) : (
-                      <button
-                        key={item.id}
-                        onClick={() => scrollTo(item.id)}
-                        className="block w-full text-left py-2 px-4 text-slate-600 font-medium"
-                      >
-                        {item.label}
-                      </button>
-                    )
-                  )}
-                </div>
-              </motion.div>
+              <>
+                <motion.div
+                  key="menu-overlay"
+                  className="fixed inset-0 top-16 bg-black/20 z-40 md:hidden"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={() => setIsMenuOpen(false)}
+                  aria-hidden="true"
+                />
+                <motion.div
+                  key="menu-panel"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="md:hidden overflow-hidden border-t border-slate-200 relative z-50 bg-white"
+                >
+                  <nav className="py-3" aria-label="Menu mobile">
+                    {menuItems.map((item) =>
+                      item.href ? (
+                        <a
+                          key={item.id}
+                          href={item.href}
+                          className="block py-3.5 px-4 text-slate-600 font-medium active:bg-slate-100 min-h-[44px] flex items-center"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {item.label}
+                        </a>
+                      ) : (
+                        <button
+                          key={item.id}
+                          type="button"
+                          onClick={() => scrollTo(item.id)}
+                          className="block w-full text-left py-3.5 px-4 text-slate-600 font-medium active:bg-slate-100 min-h-[44px] flex items-center"
+                        >
+                          {item.label}
+                        </button>
+                      )
+                    )}
+                  </nav>
+                </motion.div>
+              </>
             )}
           </AnimatePresence>
         </nav>
@@ -129,7 +158,7 @@ export default function Home() {
         {/* 1. Hero - ocupa quase toda a tela */}
         <section
           id="hero"
-          className="min-h-[95vh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden"
+          className="min-h-[95vh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden scroll-mt-16"
         >
           {/* Fundo tecnológico: gradiente + grid sutil */}
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
@@ -171,7 +200,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                Desenvolvimento de Sistemas Web Sob Medida
+                Desenvolvimento de Sistemas Web e Aplicativos Sob Medida
               </motion.h1>
               <motion.p
                 className="text-lg sm:text-xl text-slate-300 mb-4 max-w-2xl md:max-w-none"
@@ -258,7 +287,7 @@ export default function Home() {
         </section>
 
         {/* 2. Problema das empresas */}
-        <section id="problema" className="py-20 sm:py-24 px-4 sm:px-6 bg-white transition-colors">
+        <section id="problema" className="py-20 sm:py-24 px-4 sm:px-6 bg-white transition-colors scroll-mt-16">
           <div className="max-w-4xl mx-auto">
             <motion.h2
               className="text-2xl sm:text-3xl font-bold text-slate-900 text-center mb-4"
@@ -319,7 +348,7 @@ export default function Home() {
         </section>
 
         {/* 3. Soluções */}
-        <section id="solucoes" className="py-20 sm:py-24 px-4 sm:px-6 bg-slate-50">
+        <section id="solucoes" className="py-20 sm:py-24 px-4 sm:px-6 bg-slate-50 scroll-mt-16">
           <div className="max-w-5xl mx-auto">
             <motion.h2
               className="text-2xl sm:text-3xl font-bold text-slate-900 text-center mb-14"
@@ -382,7 +411,7 @@ export default function Home() {
         </section>
 
         {/* 4. Processo - timeline */}
-        <section id="processo" className="py-20 sm:py-24 px-4 sm:px-6 bg-white overflow-hidden">
+        <section id="processo" className="py-20 sm:py-24 px-4 sm:px-6 bg-white overflow-hidden scroll-mt-16">
           <div className="max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto w-full min-w-0">
             <motion.h2
               className="text-2xl sm:text-3xl font-bold text-slate-900 text-center mb-12 sm:mb-16"
@@ -446,7 +475,7 @@ export default function Home() {
         </section>
 
         {/* 5. Tecnologias - logos grandes com hover */}
-        <section id="tecnologias" className="py-20 sm:py-24 px-4 sm:px-6 bg-slate-50">
+        <section id="tecnologias" className="py-20 sm:py-24 px-4 sm:px-6 bg-slate-50 scroll-mt-16">
           <div className="max-w-4xl mx-auto">
             <motion.h2
               className="text-2xl sm:text-3xl font-bold text-slate-900 text-center mb-14"
@@ -484,7 +513,7 @@ export default function Home() {
         </section>
 
         {/* 6. Sobre - com foto ao lado */}
-        <section id="sobre" className="py-20 sm:py-24 px-4 sm:px-6 bg-white">
+        <section id="sobre" className="py-20 sm:py-24 px-4 sm:px-6 bg-white scroll-mt-16">
           <div className="max-w-4xl mx-auto">
             <motion.h2
               className="text-2xl sm:text-3xl font-bold text-slate-900 text-center mb-12"
@@ -542,7 +571,7 @@ export default function Home() {
         {/* 7. CTA Final - gradiente */}
         <section
           id="contato"
-          className="py-20 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden"
+          className="py-20 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden scroll-mt-16"
         >
           <div
             className="absolute inset-0 opacity-[0.04]"
