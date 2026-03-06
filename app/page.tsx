@@ -421,9 +421,7 @@ export default function Home() {
             >
               Como funciona o desenvolvimento do projeto
             </motion.h2>
-            <div className="relative w-full min-w-0">
-              {/* Linha vertical da timeline */}
-              <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-slate-200 sm:left-6 md:left-1/2 md:-translate-x-px" />
+            <div className="space-y-4 sm:space-y-5">
               {[
                 {
                   step: 1,
@@ -453,18 +451,16 @@ export default function Home() {
               ].map((item, i) => (
                 <motion.div
                   key={item.step}
-                  className="relative flex items-start gap-4 sm:gap-5 pl-14 sm:pl-16 md:pl-0 md:flex md:gap-0 mb-10 sm:mb-12 last:mb-0 md:odd:flex-row md:even:flex-row-reverse md:odd:pr-[calc(50%+2rem)] lg:odd:pr-[calc(50%+2.5rem)] md:even:pl-[calc(50%+2rem)] lg:even:pl-[calc(50%+2.5rem)] min-w-0"
-                  initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  className="flex items-start gap-4 sm:gap-5 bg-slate-50 rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 border border-slate-200 min-w-0 w-full overflow-hidden"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-30px" }}
                   transition={{ delay: i * 0.08 }}
                 >
-                  <div className="flex-shrink-0 absolute left-0 sm:left-1 md:relative md:left-auto flex items-start md:items-center md:absolute md:left-1/2 md:translate-x-[-50%]">
-                    <span className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-brand-primary text-white font-bold flex items-center justify-center text-sm md:text-base shadow-md z-10 flex-shrink-0">
-                      {item.step}
-                    </span>
-                  </div>
-                  <div className="bg-slate-50 rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 border border-slate-200 min-w-0 w-full overflow-hidden md:max-w-[calc(50%-2.5rem)] lg:max-w-[calc(50%-3rem)] md:odd:mr-auto md:even:ml-auto">
+                  <span className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-brand-primary text-white font-bold flex items-center justify-center text-sm md:text-base shadow-md">
+                    {item.step}
+                  </span>
+                  <div className="min-w-0 flex-1">
                     <h3 className="font-bold text-slate-900 mb-2 text-base sm:text-lg md:text-xl break-words">{item.title}</h3>
                     <p className="text-slate-600 text-sm md:text-base break-words">{item.text}</p>
                   </div>
