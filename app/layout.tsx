@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import Cursor from "../components/Cursor";
+import BackgroundAnimated from "../components/BackgroundAnimated";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -20,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={montserrat.className}>
-      <body className="antialiased">
+      <body className="antialiased relative">
+        <BackgroundAnimated />
+        <Cursor />
         {children}
       </body>
     </html>

@@ -18,6 +18,9 @@ import {
 import { SiTypescript, SiNestjs } from "react-icons/si";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import NavbarNew from "../components/NavbarNew";
+import HeroProduct from "../components/HeroProduct";
+import ProjectDemo from "../components/ProjectDemo";
 
 const WHATSAPP_NUMBER = "5521981413688";
 const EMAIL = "anderson.informata@gmail.com";
@@ -59,232 +62,11 @@ export default function Home() {
   }, [isMenuOpen]);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 overflow-x-hidden">
-      {/* Navbar fixa */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-shadow">
-        <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <a href="/" className="font-bold text-lg text-slate-900">
-              Anderson Pereira
-            </a>
-            <div className="hidden md:flex items-center gap-8">
-              {menuItems.map((item) =>
-                item.href ? (
-                  <a
-                    key={item.id}
-                    href={item.href}
-                    className="text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors duration-200"
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollTo(item.id)}
-                    className="text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors duration-200"
-                  >
-                    {item.label}
-                  </button>
-                )
-              )}
-            </div>
-            <button
-              type="button"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 text-slate-600"
-              aria-label="Menu"
-            >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
-          <AnimatePresence>
-            {isMenuOpen && (
-              <>
-                <motion.div
-                  key="menu-overlay"
-                  className="fixed inset-0 top-16 bg-black/20 z-40 md:hidden"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  onClick={() => setIsMenuOpen(false)}
-                  aria-hidden="true"
-                />
-                <motion.div
-                  key="menu-panel"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="md:hidden overflow-hidden border-t border-slate-200 relative z-50 bg-white"
-                >
-                  <nav className="py-3" aria-label="Menu mobile">
-                    {menuItems.map((item) =>
-                      item.href ? (
-                        <a
-                          key={item.id}
-                          href={item.href}
-                          className="block py-3.5 px-4 text-slate-600 font-medium active:bg-slate-100 min-h-[44px] flex items-center"
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          {item.label}
-                        </a>
-                      ) : (
-                        <button
-                          key={item.id}
-                          type="button"
-                          onClick={() => scrollTo(item.id)}
-                          className="block w-full text-left py-3.5 px-4 text-slate-600 font-medium active:bg-slate-100 min-h-[44px] flex items-center"
-                        >
-                          {item.label}
-                        </button>
-                      )
-                    )}
-                  </nav>
-                </motion.div>
-              </>
-            )}
-          </AnimatePresence>
-        </nav>
-      </header>
+    <div className="min-h-screen text-white overflow-x-hidden">
+      <NavbarNew />
 
       <main className="pt-16">
-        {/* 1. Hero - ocupa quase toda a tela */}
-        <section
-          id="hero"
-          className="min-h-[95vh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden scroll-mt-16"
-        >
-          {/* Fundo tecnológico: gradiente + grid sutil */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: `linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)`,
-              backgroundSize: "48px 48px",
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" />
-
-          <div className="relative z-10 max-w-5xl mx-auto w-full flex flex-col md:flex-row md:items-center gap-12 md:gap-16">
-            <motion.div
-              className="flex-shrink-0 mx-auto md:mx-0"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <img
-                src="/certificados/imagem-perfil.png"
-                alt="Anderson Pereira - Desenvolvedor Full Stack"
-                className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-2xl object-cover shadow-2xl ring-2 ring-white/20"
-              />
-            </motion.div>
-            <div className="text-center md:text-left flex-1">
-              <motion.p
-                className="text-slate-400 font-medium text-sm mb-2"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                Anderson Pereira
-              </motion.p>
-              <motion.h1
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white mb-5"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                Desenvolvimento de Sistemas Web e Aplicativos Sob Medida
-              </motion.h1>
-              <motion.p
-                className="text-lg sm:text-xl text-slate-300 mb-4 max-w-2xl md:max-w-none"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                Transformo ideias e processos manuais em sistemas web modernos, automatizados e eficientes.
-              </motion.p>
-              <motion.p
-                className="text-slate-400 mb-10 max-w-2xl md:max-w-none"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.35 }}
-              >
-                Ajudo empresas a organizar informações, automatizar tarefas e criar plataformas digitais e aplicativos
-                através de soluções tecnológicas personalizadas.
-              </motion.p>
-              <motion.div
-                className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.45 }}
-              >
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-emerald-500/25"
-                >
-                  Solicitar Orçamento
-                </a>
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold py-3.5 px-6 rounded-xl border border-white/30 transition-all duration-200"
-                >
-                  <FaWhatsapp size={20} />
-                  Falar no WhatsApp
-                </a>
-              </motion.div>
-              <motion.div
-                className="flex flex-wrap items-center justify-center md:justify-start gap-6 text-slate-400 text-sm"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.55 }}
-              >
-                <span>Contato:</span>
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-white transition-colors"
-                >
-                  <FaWhatsapp size={18} className="text-emerald-400" />
-                  21 98141-3688
-                </a>
-                <a href={`mailto:${EMAIL}`} className="inline-flex items-center gap-2 hover:text-white transition-colors">
-                  <FaEnvelope size={16} />
-                  {EMAIL}
-                </a>
-              </motion.div>
-            </div>
-          </div>
-
-          {/* Indicador de scroll animado */}
-          <motion.div
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-          >
-            <span className="text-xs uppercase tracking-wider">Scroll</span>
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-            </motion.div>
-          </motion.div>
-        </section>
+        <HeroProduct />
 
         {/* 2. Problema das empresas */}
         <section id="problema" className="py-20 sm:py-24 px-4 sm:px-6 bg-white transition-colors scroll-mt-16">
@@ -409,6 +191,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Demo do Sistema de Gestão Escolar */}
+        <ProjectDemo />
 
         {/* 4. Processo - timeline */}
         <section id="processo" className="py-20 sm:py-24 px-4 sm:px-6 bg-white overflow-hidden scroll-mt-16">

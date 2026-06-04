@@ -14,6 +14,10 @@
   --brand-muted: #64748b;
   --brand-border: #e2e8f0;
   --brand-dark-border: #334155;
+  --accent-1: #06b6d4;
+  --accent-2: #7c3aed;
+  --bg-gradient-from: #071021;
+  --bg-gradient-to: #071831;
 }
 
 @theme inline {
@@ -34,4 +38,58 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-montserrat), Arial, sans-serif;
+}
+
+/* Product-like theme */
+body { background: linear-gradient(180deg,var(--bg-gradient-from),var(--bg-gradient-to)); }
+
+/* Subtle focus rings */
+button:focus, a:focus { outline: 2px solid rgba(124,58,237,0.16); outline-offset: 3px }
+
+/* Custom cursor states */
+.cursor-hover .pointer-events-none.w-10 { transform: scale(1.8) }
+body.cursor-hover .pointer-events-none.w-2 { transform: scale(0.6) }
+
+/* Glassmorphism helpers */
+.glass {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Subtle blob animation */
+@keyframes blob {
+  0% { transform: translate3d(0,0,0) scale(1) }
+  33% { transform: translate3d(20px,-10px,0) scale(1.05) }
+  66% { transform: translate3d(-30px,20px,0) scale(0.95) }
+  100% { transform: translate3d(0,0,0) scale(1) }
+}
+.animate-blob { animation: blob 12s infinite; }
+.animation-delay-2000 { animation-delay: 2s }
+
+/* Custom scrollbar */
+.custom-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.12) transparent;
+}
+.custom-scroll::-webkit-scrollbar { height: 8px; width: 8px }
+.custom-scroll::-webkit-scrollbar-thumb { background: linear-gradient(180deg,#ffffff22,#ffffff11); border-radius: 999px }
+.custom-scroll::-webkit-scrollbar-track { background: transparent }
+
+/* typing indicator */
+.typing::after {
+  content: "...";
+  display: inline-block;
+  margin-left: 6px;
+  animation: dots 1s steps(4, end) infinite;
+}
+@keyframes dots { 0%,20% { color: rgba(255,255,255,0) } 40% { color: rgba(255,255,255,0.6) } 100% { color: rgba(255,255,255,0) } }
+
+/* Loading state */
+.shimmer { background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 100%); background-size: 200% 100%; animation: shimmer 1.6s linear infinite }
+@keyframes shimmer { 0% { background-position: 200% 0 } 100% { background-position: -200% 0 } }
+
+/* Ensure custom cursor doesn't interfere on small screens */
+@media (pointer: coarse), (max-width: 768px) {
+  .pointer-events-none { display: none !important }
 }
