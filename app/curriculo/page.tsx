@@ -2,6 +2,10 @@
 
 import Navbar from "../../components/Navbar";
 import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+
+const LINKEDIN_URL = "https://www.linkedin.com/in/anderson-pereira-06a372429/";
+const GITHUB_URL = "https://github.com/pereirasil";
 
 export default function Curriculo() {
   return (
@@ -35,15 +39,46 @@ export default function Curriculo() {
               </p>
               <p className="flex items-center">
                 <span className="font-medium text-slate-700">LinkedIn:</span>
-            <a
-              href="https://www.linkedin.com/in/anderson-pereira-61375a254/"
-              target="_blank"
-              rel="noopener noreferrer"
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="ml-2 text-brand-primary hover:text-brand-primary-hover transition-colors"
-            >
+                >
                   Anderson Pereira
-            </a>
-          </p>
+                </a>
+              </p>
+              <p className="flex items-center">
+                <span className="font-medium text-slate-700">GitHub:</span>
+                <a
+                  href={GITHUB_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-2 text-brand-primary hover:text-brand-primary-hover transition-colors"
+                >
+                  pereirasil
+                </a>
+              </p>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-brand-border bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:border-brand-primary/50 hover:text-brand-primary transition-colors"
+              >
+                <FaLinkedin size={18} />
+                LinkedIn
+              </a>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-brand-border bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:border-brand-primary/50 hover:text-brand-primary transition-colors"
+              >
+                <FaGithub size={18} />
+                GitHub
+              </a>
             </div>
         </section>
 

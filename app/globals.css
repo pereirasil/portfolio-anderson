@@ -7,17 +7,17 @@
   --foreground: #0f172a;
   --brand-surface: #f8fafc;
   --brand-surface-elevated: #ffffff;
-  --brand-primary: #1d4ed8;
-  --brand-primary-hover: #1e40af;
-  --brand-dark: #0f172a;
-  --brand-dark-surface: #1e293b;
+  --brand-primary: #2563eb;
+  --brand-primary-hover: #1d4ed8;
+  --brand-dark: #020617;
+  --brand-dark-surface: #0f172a;
   --brand-muted: #64748b;
   --brand-border: #e2e8f0;
-  --brand-dark-border: #334155;
-  --accent-1: #06b6d4;
-  --accent-2: #7c3aed;
-  --bg-gradient-from: #071021;
-  --bg-gradient-to: #071831;
+  --brand-dark-border: #1e293b;
+  --accent-1: #38bdf8;
+  --accent-2: #2563eb;
+  --bg-gradient-from: #020617;
+  --bg-gradient-to: #0f172a;
 }
 
 @theme inline {
@@ -34,6 +34,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -41,7 +45,7 @@ body {
 }
 
 /* Product-like theme */
-body { background: linear-gradient(180deg,var(--bg-gradient-from),var(--bg-gradient-to)); }
+body { background: #020617; }
 
 /* Subtle focus rings */
 button:focus, a:focus { outline: 2px solid rgba(124,58,237,0.16); outline-offset: 3px }
@@ -52,9 +56,9 @@ body.cursor-hover .pointer-events-none.w-2 { transform: scale(0.6) }
 
 /* Glassmorphism helpers */
 .glass {
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(8px) saturate(120%);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(2,6,23,0.72);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(148,163,184,0.16);
 }
 
 /* Subtle blob animation */
